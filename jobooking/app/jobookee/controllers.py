@@ -8,7 +8,7 @@ from app import db
 # Import module forms
 
 # Import module models (i.e. User)
-from app.jobookees.models import jobookees
+from app.jobookee.models import jobookee
 
 # Define the blueprint: 'auth', set its url prefix: app.url/auth
 app_jobookees = Blueprint('jobookees', __name__, url_prefix='/jobookees')

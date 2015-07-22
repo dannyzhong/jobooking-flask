@@ -9,7 +9,7 @@ from app import db
 # Import module forms
 
 # Import module models (i.e. User)
-from app.jobs.models import job
+from app.job.models import job
 
 # Define the blueprint: 'auth', set its url prefix: app.url/auth
 app_jobs = Blueprint('jobs', __name__, url_prefix='/jobs')

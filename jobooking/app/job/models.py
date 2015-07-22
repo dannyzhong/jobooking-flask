@@ -1,5 +1,5 @@
 from app import db
-from app.jobookees.models import jobookees
+from app.jobookee.models import jobookee
 
 class Base(db.Model):
 

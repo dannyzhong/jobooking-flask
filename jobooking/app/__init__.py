@@ -13,9 +13,9 @@ db = SQLAlchemy(app)
 def not_found(error):
     return render_template('404.html'), 404
 
-from jobs.controllers import app_jobs as jobs_mod
+from job.controllers import app_jobs as jobs_mod
 
-from jobookees.controllers import app_jobookees as jobookees_mod
+from jobookee.controllers import app_jobookees as jobookees_mod
 app.register_blueprint(jobs_mod)
 
 app.register_blueprint(jobookees_mod)
