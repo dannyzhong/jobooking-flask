@@ -10,7 +10,7 @@ class Base(db.Model):
                                            onupdate=db.func.current_timestamp())
 
     
-class jobookee(Base):
+class Jobookee(Base):
     __tablename__ = "jobookee"
     jobookee_name = db.Column(db.String(128),  nullable=False)
     

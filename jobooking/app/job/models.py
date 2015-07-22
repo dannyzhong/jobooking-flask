@@ -1,5 +1,5 @@
 from app import db
-from app.jobookee.models import jobookee
+from app.jobookee.models import Jobookee
 
 class Base(db.Model):
 
@@ -11,15 +11,15 @@ class Base(db.Model):
                                            onupdate=db.func.current_timestamp())
 
     
-class job(Base):
-    __tablename__ = "jobs"
+class Job(Base):
+    __tablename__ = "job"
     job_title = db.Column(db.String(128),  nullable=False)
     job_desc = db.Column(db.Text,nullable=True)
-    jobookee_id = db.Column(db.Integer, db.ForeignKey('jobookees.id'))
-    jobookees = db.relationship('Jobookees',
+    jobookee_id = db.Column(db.Integer, db.ForeignKey('jobookee.id'))
+    jobookee = db.relationship('Jobookee',
         backref=db.backref('jobs', lazy='dynamic'))
 
-    def __init__(self, job_title):
+    def __init__(self, job_title,job_desc,jobookee_id):
 
         self.job_title     = job_title
         
