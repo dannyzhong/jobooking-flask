@@ -1,0 +1,9 @@
+Setup Environment:
+sudo apt-get install mysql-server
+sudo pip install Flask-SQLAlchemy
+sudo pip install python-mysql
+sudo pip install mysql-python
+
+Run Server:
+python run.py 
+
