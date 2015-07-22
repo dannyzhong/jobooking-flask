@@ -1,24 +1,20 @@
-# Import flask dependencies
 from flask import Blueprint, request, render_template, \
                   flash, g, session, redirect, url_for
 
 
 # Import the database object from the main app module
-from jobs import db
+from app import db
 
 # Import module forms
 
 # Import module models (i.e. User)
-from jobs.models import jobs
+from app.jobookees.models import jobookees
 
 # Define the blueprint: 'auth', set its url prefix: app.url/auth
-app_jobs = Blueprint('jobs', __name__, url_prefix='/jobs')
+app_jobookees = Blueprint('jobookees', __name__, url_prefix='/jobookees')
 
 # Set the route and accepted methods
-@app_jobs.route('/', methods=['GET', 'POST'])
+@app_jobookees.route('/', methods=['GET', 'POST'])
 
 def test():
-    return "testing"
-
-                
-
+    return "testing2"
