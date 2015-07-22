@@ -20,3 +20,4 @@ app.register_blueprint(jobs_mod)
 
 app.register_blueprint(jobookees_mod)
 db.create_all()
+

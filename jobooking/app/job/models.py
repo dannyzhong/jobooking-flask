@@ -19,9 +19,11 @@ class Job(Base):
     jobookee = db.relationship('Jobookee',
         backref=db.backref('jobs', lazy='dynamic'))
 
-    def __init__(self, job_title,job_desc,jobookee_id):
+    def __init__(self, job_title,job_desc,jobookee):
 
         self.job_title     = job_title
+        self.job_desc = job_desc
+        self.jobookee = jobookee
         
 
     def __repr__(self):
