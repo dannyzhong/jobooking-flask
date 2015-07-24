@@ -1,8 +1,8 @@
 # Import flask dependencies
 from flask import Blueprint, request, render_template, \
-                  flash, g, session, redirect, url_for
+                  flash, g, session, redirect, url_for, jsonify
 
-
+import json
 # Import the database object from the main app module
 from app import db
 
@@ -15,10 +15,10 @@ from app.job.models import Job
 app_jobs = Blueprint('jobs', __name__, url_prefix='/jobs')
 
 # Set the route and accepted methods
-@app_jobs.route('/', methods=['GET', 'POST'])
+@app_jobs.route('/<job_id>', methods=['GET'])
 
-def test():
-    return "testing"
+def show_job_detail(job_id):
+    return Job.query.get(job_id).to_json()
 
                 
 

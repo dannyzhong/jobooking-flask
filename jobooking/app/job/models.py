@@ -1,6 +1,6 @@
 from app import db
 from app.jobookee.models import Jobookee
-
+from flask import jsonify
 class Base(db.Model):
 
     __abstract__  = True
@@ -28,3 +28,18 @@ class Job(Base):
 
     def __repr__(self):
         return '<Title %r>' % (self.job_title)                        
+    def to_json(self):
+        list = []
+        test = dict(ttt="1")
+        list.append(test)
+        list.append(test)
+        
+        json_str = dict(title=self.job_title, test=list);
+        
+        return jsonify(json_str)
+        
+        
+        
+        
+        
+        
