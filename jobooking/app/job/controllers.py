@@ -1,3 +1,4 @@
+
 # Import flask dependencies
 from flask import Blueprint, request, render_template, \
                   flash, g, session, redirect, url_for, jsonify
@@ -5,7 +6,6 @@ from flask import Blueprint, request, render_template, \
 import json
 # Import the database object from the main app module
 from app import db
-
 # Import module forms
 
 # Import module models (i.e. User)
@@ -14,6 +14,11 @@ from app.jobookee.models import Jobookee
 
 # Define the blueprint: 'auth', set its url prefix: app.url/auth
 app_jobs = Blueprint('jobs', __name__, url_prefix='/jobs')
+
+@app_jobs.route('/', methods=['GET'])
+
+def show_all_jobs():
+    return "show all jobs"
 
 # Set the route and accepted methods
 @app_jobs.route('/<job_id>', methods=['GET'])
