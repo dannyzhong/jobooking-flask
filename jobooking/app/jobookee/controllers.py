@@ -14,7 +14,7 @@ from app.jobookee.models import Jobookee
 app_jobookees = Blueprint('jobookees', __name__, url_prefix='/jobookees')
 
 # Set the route and accepted methods
-@app_jobookees.route('/', methods=['GET', 'POST'])
+@app_jobookees.route('/', methods=['GET'])
 
 def test():
-    return "testing2"
+    return "testing"

@@ -16,8 +16,7 @@ class Job(Base):
     job_title = db.Column(db.String(128),  nullable=False)
     job_desc = db.Column(db.Text,nullable=True)
     jobookee_id = db.Column(db.Integer, db.ForeignKey('jobookee.id'))
-    jobookee = db.relationship('Jobookee',
-        backref=db.backref('jobs', lazy='dynamic'))
+    images = db.relationship('Image', backref='job', lazy='dynamic')
 
     def __init__(self, job_title,job_desc,jobookee):
 
@@ -28,18 +27,16 @@ class Job(Base):
 
     def __repr__(self):
         return '<Title %r>' % (self.job_title)                        
-    def to_json(self):
-        list = []
-        test = dict(ttt="1")
-        list.append(test)
-        list.append(test)
-        
-        json_str = dict(title=self.job_title, test=list);
-        
-        return jsonify(json_str)
         
         
+class Image(Base):
+    __tablename__ = "job_image"
+    image_path =    db.Column(db.String(300),  nullable=False)      
+    job_id = db.Column(db.Integer, db.ForeignKey('job.id'))
+    
         
-        
+    def __init__(self,image_path,job):
+        self.image_path=image_path
+        self.job = job
         
         

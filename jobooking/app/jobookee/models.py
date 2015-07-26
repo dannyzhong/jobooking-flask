@@ -1,4 +1,5 @@
 from app import db
+from sqlalchemy.orm import backref
 
 class Base(db.Model):
 
@@ -13,6 +14,7 @@ class Base(db.Model):
 class Jobookee(Base):
     __tablename__ = "jobookee"
     jobookee_name = db.Column(db.String(128),  nullable=False)
+    jobs = db.relationship('Job', backref='jobookee',lazy='dynamic')
     
 
     def __init__(self, jobookee_name):

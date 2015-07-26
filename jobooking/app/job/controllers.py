@@ -9,16 +9,33 @@ from app import db
 # Import module forms
 
 # Import module models (i.e. User)
-from app.job.models import Job
+from app.job.models import Job, Image
+from app.jobookee.models import Jobookee
 
 # Define the blueprint: 'auth', set its url prefix: app.url/auth
 app_jobs = Blueprint('jobs', __name__, url_prefix='/jobs')
 
 # Set the route and accepted methods
 @app_jobs.route('/<job_id>', methods=['GET'])
-
 def show_job_detail(job_id):
-    return Job.query.get(job_id).to_json()
-
+    job_object = Job.query.get(job_id);
+    jobookee_object = Jobookee.query.get(job_object.jobookee_id);
+    
+    image_list = []
+    for image in job_object.images.all():        
+        image_list.append(dict(image_path = image.image_path))
+    
+    
+    
+    
+    job_detail = dict(job_title = job_object.job_title,
+                      job_desc = job_object.job_desc,
+                      jobookee_id = job_object.jobookee_id,
+                      jobookee_name = jobookee_object.jobookee_name,
+                      images = image_list)
+    
+    
+    
+    return jsonify(job_detail) 
                 
 
