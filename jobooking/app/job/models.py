@@ -1,5 +1,5 @@
 from app import db
-from app.jobookee.models import Jobookee
+from app.nest.models import Nest
 from flask import jsonify
 from app.common.models import Base
 

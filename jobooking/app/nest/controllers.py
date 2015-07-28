@@ -8,13 +8,13 @@ from app import db
 # Import module forms
 
 # Import module models (i.e. User)
-from app.jobookee.models import Jobookee
+from app.nest.models import Nest
 
 # Define the blueprint: 'auth', set its url prefix: app.url/auth
-app_jobookees = Blueprint('jobookees', __name__, url_prefix='/jobookees')
+app_nest = Blueprint('nest', __name__, url_prefix='/nest')
 
 # Set the route and accepted methods
-@app_jobookees.route('/', methods=['GET'])
+@app_nest.route('/', methods=['GET'])
 
 def test():
     return "testing"

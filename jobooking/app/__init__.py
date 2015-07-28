@@ -14,14 +14,14 @@ def not_found(error):
     return render_template('404.html'), 404
 
 from job.controllers import app_jobs as jobs_mod
-from jobookee.controllers import app_jobookees as jobookees_mod
+from nest.controllers import app_nest as nest_mod
 from timetable.controllers import app_timetables as timetables_mod
+from category.controllers import app_category as category_mod
 
 app.register_blueprint(jobs_mod)
-
-app.register_blueprint(jobookees_mod)
+app.register_blueprint(nest_mod)
 app.register_blueprint(timetables_mod)
-
+app.register_blueprint(category_mod)
 
 db.create_all()
 
