@@ -1,5 +1,6 @@
 from app.job.models import Job, Image
 from app.jobookee.models import Jobookee
+from app.timetable.models import Timetable
 from app import db
 
 
@@ -23,12 +24,24 @@ image6 = Image("image_path6",job2)
 image7 = Image("image_path7",job2)
 image8 = Image("image_path8",job3)
 
-
+timetable1 = Timetable("2016-01-01 13:00:00","2016-01-01 13:20:00",job1)
+timetable2 = Timetable("2016-01-02 14:00:00","2016-01-01 14:20:00",job1)
+timetable3 = Timetable("2016-01-03 15:00:00","2016-01-01 15:20:00",job2)
+timetable4 = Timetable("2016-01-04 16:00:00","2016-01-01 16:20:00",job2)
+timetable5 = Timetable("2016-01-05 17:00:00","2016-01-01 17:20:00",job2)
+timetable6 = Timetable("2016-01-06 18:00:00","2016-01-01 18:20:00",job3)
 db.session.add(jobookee1)
 db.session.add(jobookee2)
 db.session.add(job1)
 db.session.add(job2)
 db.session.add(job3)
+
+db.session.add(timetable1)
+db.session.add(timetable2)
+db.session.add(timetable3)
+db.session.add(timetable4)
+db.session.add(timetable5)
+db.session.add(timetable6)
 
 db.session.add(image1)
 db.session.add(image2)
