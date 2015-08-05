@@ -21,21 +21,8 @@ image6 = Job_Image("image_path6",job2)
 image7 = Job_Image("image_path7",job2)
 image8 = Job_Image("image_path8",job3)
 
-category1 = Category("nail", "i love nails")
-category2 = Category("eyebrow", "i hate eyebrow")
-
-<<<<<<< HEAD
-job3 = Job("job3","job3",jobookee2)
-
-image1 = Image("image_path1",job1)
-image2 = Image("image_path2",job1)
-image3 = Image("image_path3",job1)
-image4 = Image("image_path4",job1)
-image5 = Image("image_path5",job1)
-
-image6 = Image("image_path6",job2)
-image7 = Image("image_path7",job2)
-image8 = Image("image_path8",job3)
+category1 = Category("nail", "i love nails", "http://www.extradollar.com.au/images")
+category2 = Category("eyebrow", "i hate eyebrow", "http://www.extradollar.com.au/images")
 
 timetable1 = Timetable("2016-01-01 13:00:00","2016-01-01 13:20:00",job1)
 timetable2 = Timetable("2016-01-02 14:00:00","2016-01-01 14:20:00",job1)
@@ -43,12 +30,10 @@ timetable3 = Timetable("2016-01-03 15:00:00","2016-01-01 15:20:00",job2)
 timetable4 = Timetable("2016-01-04 16:00:00","2016-01-01 16:20:00",job2)
 timetable5 = Timetable("2016-01-05 17:00:00","2016-01-01 17:20:00",job2)
 timetable6 = Timetable("2016-01-06 18:00:00","2016-01-01 18:20:00",job3)
-db.session.add(jobookee1)
-db.session.add(jobookee2)
-=======
+
 db.session.add(nest1)
 db.session.add(nest2)
->>>>>>> efeb1d0d4a4f254ea9c2c63bda172f4a068fda7b
+
 db.session.add(job1)
 db.session.add(job2)
 db.session.add(job3)
