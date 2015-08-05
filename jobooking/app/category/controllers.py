@@ -14,25 +14,29 @@ from app.category.models import Category
 # Define the blueprint: 'auth', set its url prefix: app.url/auth
 app_category = Blueprint('category', __name__, url_prefix='/category')
 
+def dict_category(category):
+    category_detail = dict(id = category.id,
+                      name = category.name,
+                      description = category.description,
+                      image = category.image)
+    
+    return category_detail
+
 @app_category.route('/', methods=['GET'])
 def show_categories():
-    return "show all categories"
+    categories = Category.query.all();
+
+    lcategory = []
+    for cat in categories:
+        lcategory.append(dict_category(cat))
+    
+    return jsonify(dict(categories = lcategory))
 
 # Set the route and accepted methods
 @app_category.route('/<category_id>', methods=['GET'])
 def show_category_detail(category_id):
     category_object = Category.query.get(category_id);
     
-    image_list = []
-    for image in category_object.images.all():        
-        image_list.append(dict(image_path = image.image_path))
-    
-    
-    category_detail = dict(id = category_object.id,
-                      name = category_object.name,
-                      description = category_object.description,
-                      image = image_list)
-    
-    return jsonify(category_detail) 
+    return jsonify(dict_category(category_object))
                 
 
