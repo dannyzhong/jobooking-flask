@@ -1,14 +1,27 @@
 [
     {
-       
         "id": "1", 
-        "imageUrl": "img/1", 
-        "name": "catalogory1"
+        "imageUrl": "http://lorempixel.com/140/140/", 
+        "name": "nail",
+        "description": "we do nails"
         
     }, 
     {
         "id": "2", 
-        "imageUrl": "img/2", 
-        "name": "catalogory2"
+        "imageUrl": "http://lorempixel.com/140/140/", 
+        "name": "massage",
+        "description": "we do massage"
+    },
+    {
+        "id": "3", 
+        "imageUrl": "http://lorempixel.com/140/140/", 
+        "name": "car wash",
+        "description": "we do car wash"
+    },
+    {
+        "id": "4", 
+        "imageUrl": "http://lorempixel.com/140/140/", 
+        "name": "plumber",
+        "description": "we do plumber"
      }
 ]

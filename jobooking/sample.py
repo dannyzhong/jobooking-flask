@@ -2,6 +2,7 @@
 from app.job.models import Job, Job_Image
 from app.nest.models import Nest
 from app.category.models import Category
+from app.timetable.models import Timetable
 from app import db
 
 
@@ -21,8 +22,9 @@ image6 = Job_Image("image_path6",job2)
 image7 = Job_Image("image_path7",job2)
 image8 = Job_Image("image_path8",job3)
 
-category1 = Category("nail", "i love nails", "http://www.extradollar.com.au/images")
-category2 = Category("eyebrow", "i hate eyebrow", "http://www.extradollar.com.au/images")
+category1 = Category("nail", "i love nails", "http://lorempixel.com/140/140/")
+category2 = Category("eyebrow", "i hate eyebrow", "http://lorempixel.com/140/140/")
+category3 = Category("homework", "i hate homework", "http://lorempixel.com/140/140/")
 
 timetable1 = Timetable("2016-01-01 13:00:00","2016-01-01 13:20:00",job1)
 timetable2 = Timetable("2016-01-02 14:00:00","2016-01-01 14:20:00",job1)
@@ -56,6 +58,7 @@ db.session.add(image8)
 
 db.session.add(category1)
 db.session.add(category2)
+db.session.add(category3)
 
 db.session.commit()
 

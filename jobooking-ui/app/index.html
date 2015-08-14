@@ -1,100 +1,318 @@
 <!DOCTYPE html>
-<html ng-app="jobookingApp">
+<html ng-app="jobookingControllers">
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>JOBOOKING</title>
+    <title>Jobooking</title>
 
     <meta name="description" content="Source code generated using layoutit.com">
     <meta name="author" content="LayoutIt!">
     <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular.js"></script>
+
     <link href="css/bootstrap.css" rel="stylesheet">
     <link href="css/font-awesome.min.css" rel="stylesheet">
-	<link href="css/style.css" rel="stylesheet">
+	  <link href="css/style.css" rel="stylesheet">
+
     <script src="js/controllers.js"></script>
     <script src="js/app.js"></script>
     <script src="js/ui-bootstrap-tpls-0.13.2.js"></script>
     <script src="js/jquery-1.11.3.js"></script>
-	<script src="js/bootstrap.js"></script>
+	  <script src="js/bootstrap.js"></script>
 	
     <script src="bower_components/angular-route/angular-route.js"></script>
-
   </head>
-  <body>
 
+  <body ng-controller="CatagoryListCtrl">
 
+  <div class="container-fluid">
 
-    <div class="container-fluid">
-	<div class="row" >
-		<div class="col-md-12">
-			<div class="btn-group pull-right" >
-				 
-				<button type="button" class="btn btn-default" href="javascript:;" data-toggle="modal" data-target="#loginModal">
-				<span class="glyphicon glyphicon-log-in" aria-hidden="true"></span>
-				</button>
-				
-			</div>
-                   <div class="col-md-12">
-			<div class="row">
-  <div class="col-lg-4">
- 
-  </div><!-- /.col-lg-6 -->
-  <div class="col-lg-4">
-    <div class="input-group">
-      <input type="text" class="form-control" placeholder="Search for...">
-      <span class="input-group-btn">
-        <button class="btn btn-default" type="button"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
-      </span>
-    </div><!-- /input-group -->
-  </div><!-- /.col-lg-6 -->
-    <div class="col-lg-4">
- 
+  <div class="row">
+    <div class="col-md-1">
+    </div>
+    <div class="col-md-8">
+      <h3 class="text-left">
+        Heading
+      </h3>
+    </div>
+    <div class="col-md-3">
+      <ul class="breadcrumb">
+        <li>
+          <a href="#">Register</a> <span class="divider">/</span>
+        </li>
+        <li>
+          <a href="#">Login</a> <span class="divider">/</span>
+        </li>
+        <li class="active">
+          <a href="#">Help</a>
+        </li>
+      </ul>
+    </div>
   </div>
-</div><!-- /.row -->
-		</div>
-                </div>
-	</div>
-	<div class="row">
-		<div class="col-md-12">
-			<div class="list-group">
-				 <a href="#" class="list-group-item active">Home</a>
-				<div class="list-group-item">
-					List header
-				</div>
-				<div class="list-group-item">
-					<h4 class="list-group-item-heading">
-						List group item heading
-					</h4>
-					<p class="list-group-item-text">
-						...
-					</p>
-				</div>
-				<div class="list-group-item">
-					<span class="badge">14</span>Help
-				</div> <a class="list-group-item active"><span class="badge">14</span>Help</a>
-			</div>
-		</div>
-	</div>
-	<div class="row" ng-controller="CatagoryListCtrl">
-	  <div class="col-md-4" ng-repeat="catagory in catagories">
-                        <h2>
-                                {{catagory.name}}
-                        </h2>
-                        <p>
-                               {{catagory.imageUrl}}
-                        </p>
-                        <p>
-                                <a class="btn" href="#">View details »</a>
-                        </p>
-                </div>
-	</div>
-</div>
- <div ng-view></div>
 
+  <div class="row">
+    <div class="col-md-1">
+    </div>
 
- 	
- 	
+    <div class="col-md-3">
+      <input type="text" class="form-control" placeholder="Search for...">
+    </div>
+
+    <div class="col-md-4">
+      <input>
+      <button type="button" class="btn btn-default">
+        Date
+      </button>
+    </div>
+
+    <div class="col-md-2">
+      <div class="btn-group">
+         
+        <button class="btn btn-default">
+          Sydney CBD
+        </button> 
+        <button data-toggle="dropdown" class="btn btn-default dropdown-toggle">
+          <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu">
+          <li>
+            <a href="#">Eastern Suburb</a>
+          </li>
+          <li>
+            <a href="#">Western Suburb</a>
+          </li>
+          <li>
+            <a href="#">Inner West</a>
+          </li>
+          <li>
+            <a href="#">North Shore</a>
+          </li>
+          <li class="disabled">
+            <a href="#">other regions</a>
+          </li>
+          <li class="divider">
+          </li>
+          <li>
+            <a href="#">All regions</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="col-md-1">
+      <button class="btn btn-default" type="button">
+        <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+      </button>
+    </div>
+
+  </div>
+
+  <div class="row">
+    <div class="col-md-12">
+      <div class="page-header">
+        <h1>
+          <small></small>
+        </h1>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+
+    <div class="col-md-2">
+    </div>
+
+    <div class="col-md-2" ng-repeat="catagory in catagories">
+      <h2><a href="#/catagory/{{catagory.id}}">{{catagory.name}}</a></h2>
+      <p><a href="#/catagory/{{catagory.id}}" class="thumb"><img ng-src="{{catagory.imageUrl}}" class="img-rounded"></a></p>
+      <p>{{catagory.description}}</p>
+    </div>
+
+    <div class="col-md-2">
+    </div>
+
+  </div>
+
+  <div class="row">
+    <div class="col-md-12">
+      <div class="page-header">
+        <h1>
+          <small></small>
+        </h1>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-1">
+    </div>
+    <div class="col-md-2">
+      <img alt="Bootstrap Image Preview" src="http://lorempixel.com/140/140/">
+    </div>
+    <div class="col-md-2">
+      <img alt="Bootstrap Image Preview" src="http://lorempixel.com/140/140/">
+    </div>
+    <div class="col-md-2">
+      <img alt="Bootstrap Image Preview" src="http://lorempixel.com/140/140/">
+    </div>
+    <div class="col-md-2">
+      <img alt="Bootstrap Image Preview" src="http://lorempixel.com/140/140/">
+    </div>
+    <div class="col-md-2">
+      <img alt="Bootstrap Image Preview" src="http://lorempixel.com/140/140/">
+    </div>
+    <div class="col-md-1">
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-12">
+      <div class="page-header">
+        <h1>
+          <small></small>
+        </h1>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-1">
+    </div>
+    <div class="col-md-2">
+      <img alt="Bootstrap Image Preview" src="http://lorempixel.com/140/140/">
+    </div>
+    <div class="col-md-2">
+      <img alt="Bootstrap Image Preview" src="http://lorempixel.com/140/140/">
+    </div>
+    <div class="col-md-2">
+      <img alt="Bootstrap Image Preview" src="http://lorempixel.com/140/140/">
+    </div>
+    <div class="col-md-2">
+      <img alt="Bootstrap Image Preview" src="http://lorempixel.com/140/140/">
+    </div>
+    <div class="col-md-2">
+      <img alt="Bootstrap Image Preview" src="http://lorempixel.com/140/140/">
+    </div>
+    <div class="col-md-1">
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-12">
+      <div class="page-header">
+        <h1>
+          <small></small>
+        </h1>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-2">
+    </div>
+    <div class="col-md-3">
+      <img alt="Bootstrap Image Preview" src="http://lorempixel.com/140/140/" class="img-circle">
+      <p><a class="btn" href="#">How we work »</a></p>
+    </div>
+    <div class="col-md-3">
+      <img alt="Bootstrap Image Preview" src="http://lorempixel.com/140/140/" class="img-circle">
+      <p><a class="btn" href="#">Why us »</a></p>
+    </div>
+    <div class="col-md-3">
+      <img alt="Bootstrap Image Preview" src="http://lorempixel.com/140/140/" class="img-circle">
+      <p><a class="btn" href="#">FAQ »</a></p>
+    </div>
+    <div class="col-md-1">
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-1">
+    </div>
+    <div class="col-md-11">
+      <div class="page-header">
+        <h1>
+          <small>Footer</small>
+        </h1>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-2">
+    </div>
+    <div class="col-md-2">
+      <dl>
+        <dt>
+          About US
+        </dt>
+        <dd>
+          Book your jobs.
+        </dd>
+        <dt>
+          Extra dollar
+        </dt>
+        <dd>
+          Make your extra dollar.
+        </dd>
+        <dd>
+          per hour or per job.
+        </dd>
+      </dl>
+    </div>
+    <div class="col-md-2">
+      <ul>
+        <li>
+          Fare
+        </li>
+        <li>
+          how to
+        </li>
+        <li>
+          distance
+        </li>
+        <li>
+          what if
+        </li>
+        <li>
+          categories
+        </li>
+      </ul>
+    </div>
+    <div class="col-md-2">
+      <ul>
+        <li>
+          email us
+        </li>
+        <li>
+          call us
+        </li>
+        <li>
+          twitter us
+        </li>
+        <li>
+          facebook us
+        </li>
+        <li>
+          online chat
+        </li>
+      </ul>
+    </div>
+    <div class="col-md-2">
+       
+      <address>
+         <strong>Jobooking Pty. Ltd.</strong><br>1 George Street<br>Sydney 2000<br> <abbr title="Phone">P:</abbr> (123) 456-7890
+      </address>
+    </div>
+    <div class="col-md-2">
+    </div>
+  </div>
+
+  </div>
+
+  
+  <div ng-view></div>
+
   </body>
 </html>

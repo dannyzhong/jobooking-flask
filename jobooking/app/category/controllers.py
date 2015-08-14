@@ -18,7 +18,7 @@ def dict_category(category):
     category_detail = dict(id = category.id,
                       name = category.name,
                       description = category.description,
-                      image = category.image)
+                      imageUrl = category.imageUrl)
     
     return category_detail
 
