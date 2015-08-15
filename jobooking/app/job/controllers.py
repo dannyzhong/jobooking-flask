@@ -3,6 +3,7 @@
 from flask import Blueprint, request, render_template, \
                   flash, g, session, redirect, url_for, jsonify
 
+
 import json
 # Import the database object from the main app module
 from app import db
@@ -24,7 +25,7 @@ def show_all_jobs():
 @app_jobs.route('/<job_id>', methods=['GET'])
 def show_job_detail(job_id):
     job_object = Job.query.get(job_id);
-    nest_object = Nest.query.get(job_object.nest_id);
+   
     
     image_list = []
     for image in job_object.images.all():        
@@ -35,8 +36,7 @@ def show_job_detail(job_id):
     
     job_detail = dict(job_title = job_object.job_title,
                       job_desc = job_object.job_desc,
-                      jobookee_id = job_object.nest_id,
-                      jobookee_name = nest_object.nest_name,
+                      
                       images = image_list)
     
     
