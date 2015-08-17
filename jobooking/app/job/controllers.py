@@ -6,12 +6,14 @@ from flask import Blueprint, request, render_template, \
 
 import json
 # Import the database object from the main app module
-from app import db
+from app import db, category
 # Import module forms
 
 # Import module models (i.e. User)
 from app.job.models import Job, Job_Image
+from app.category.models import Category
 from app.nest.models import Nest
+from sre_constants import CATEGORY
 
 # Define the blueprint: 'auth', set its url prefix: app.url/auth
 app_jobs = Blueprint('jobs', __name__, url_prefix='/jobs')
@@ -19,7 +21,17 @@ app_jobs = Blueprint('jobs', __name__, url_prefix='/jobs')
 @app_jobs.route('/', methods=['GET'])
 
 def show_all_jobs():
-    return "show all jobs"
+    term = request.args.get('term')
+    limit = request.args.get('limit')
+    objects = db.session.query(Job,Category,Nest).filter(Job.category_id == Category.id).filter(Job.nest_id == Nest.id).filter(Job.job_title.contains(term)).limit(int(limit))
+    job_list = []
+    for aa,bb,cc in objects:
+        job_list.append(dict(id = aa.id,
+                             title = aa.job_title,
+                             category_name = bb.name,
+                             nest_name = cc.name))
+        
+    return jsonify(dict(result = job_list))  
 
 # Set the route and accepted methods
 @app_jobs.route('/<job_id>', methods=['GET'])
