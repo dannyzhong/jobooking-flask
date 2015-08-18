@@ -6,11 +6,10 @@ from app.common.models import Base
 class Nest(Base):
     __tablename__ = "nest"
     name = db.Column(db.String(128),  nullable=False)
-    #ants = db.relationship('Ant', backref='nest',lazy='dynamic')
-
+    ants = db.relationship('Ant', backref='nest',lazy='dynamic')
+    jobs = db.relationship('Job', backref='nest',lazy='dynamic')
     def __init__(self, name):
-
-        self.name     = name
+        self.name = name
         
         
 

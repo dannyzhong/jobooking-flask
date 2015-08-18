@@ -9,8 +9,7 @@ class Ant(Base):
     last_name = db.Column(db.String(128),  nullable=False)
     gender = db.Column(db.Text,nullable=True)
     nest_id = db.Column(db.Integer, db.ForeignKey('nest.id'))
-    timetables = db.relationship('Timetable', backref='ant', lazy='dynamic')
-    jobs = db.relationship('Timetable', backref='ant', lazy='dynamic')
+    
     
     
     
